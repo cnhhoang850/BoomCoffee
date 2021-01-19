@@ -4,7 +4,7 @@ const SizePrice = () => {
   const [price, setPrice] = useState("29k");
   return (
     <div className={`order order-wrapper`}>
-      <a href="https://bols.com/cocktails/recipes">
+      <a>
         <div className={`textParallax`}>
           <div className="textBox">
             <div className="title">

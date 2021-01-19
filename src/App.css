@@ -1,11 +1,6 @@
 /* autoprefixer grid: autoplace */
 
 @font-face {
-  font-family: 'gotham';
-  src: url('Gotham-Ultra.otf');
-}
-
-@font-face {
   font-family: 'chaney';
   src: url('CHANEY-Regular.otf');
   font-weight: normal;
@@ -15,20 +10,6 @@
 @font-face {
   font-family: 'chaneywide';
   src: url('CHANEY-Wide.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'chaneyextended';
-  src: url('CHANEY-Extended.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'chaneyUextended';
-  src: url('CHANEY-UltraExtended.otf');
   font-weight: normal;
   font-style: normal;
 }
@@ -58,6 +39,15 @@
 
 html {
    scroll-behavior: smooth;
+   background-color: black;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 /*----------HEADER-------------*/

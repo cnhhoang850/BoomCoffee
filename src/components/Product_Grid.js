@@ -10,16 +10,8 @@ const transition = { duration: 4, ease: [0.6, 0.01, 0.05, 0.9] };
 
 const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
   const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [150, 250]);
+  const scale = useTransform(scrollYProgress, [0, 1], [100, 250]);
 
-  let menuItems = [
-    {
-      firstName: "FRAPPU",
-      lastName: "CHOCO",
-      price: "29.000VND",
-      index: 1,
-    },
-  ];
   return (
     <motion.div
       whileHover="hover"
