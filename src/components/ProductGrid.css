@@ -1,6 +1,9 @@
 /*----------DISPLAY GRID-------------*/
+#root {
+  padding: 2vw
+}
 
-.grid {  
+.productGrid {  
   margin: 3rem;
   margin-top: 2vw;
   padding: 0;
@@ -13,26 +16,20 @@
   grid-auto-rows: minmax(auto,auto);
   grid-gap: 1.5rem;
   grid-template: 
-  'item-1 item-1 item-2 item-2 item-3 item-3'
-  'item-4 item-4 item-5 item-5 item-6 item-6'
-  'item-7 item-7 item-8 item-8 item-9 item-9'
-  'item-10 item-10 item-11 item-11 item-12 item-12'
+    'item item item order order order'
+    'item item item about about about'
   ;
 }
 
 @media (max-width: 48rem)  {
-  .grid {
+  .productGrid {
     margin: 1rem;
 
     grid-gap: .7rem;
     grid-template: 
-    'item item item item item item'
-    'item item item item item item'
-    'item item item item item item'
-    'item item item item item item'
-    'order order order order order order'
-    'about about about about about about about'
-    'about about about about about about about'
+    'item'
+    'order'
+    'about'
     ;
   }
 
@@ -61,12 +58,45 @@
 
 }
 
+.other-wrapper {
+  height:0;
+  padding-top: 100%;
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  transition:  1s cubic-bezier(.3,.7,0,1);
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
+  transition-delay: 0s;
+}
+
+.order-wrapper {
+  height:0;
+  padding-top: calc(1.28 * 50% - .7rem - 13px);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  border-radius: 30px;
+
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+
+  transition:  1s cubic-bezier(.3,.7,0,1);
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
+  transition-delay: 0s;
+}
+
 .item-wrapper:hover, .item-wrapper:active {
   transform: scale(.98);
 }
 
 
-.parallax {
+.textParallax {
   position: absolute;
   top: 0%;
   left: 0;
@@ -82,7 +112,7 @@
   transition-delay: 0s;
 }
 
-.parallax::after {
+.textParallax::after {
   content: ' '; 
     display: block;
     position: absolute;
@@ -95,7 +125,7 @@
     border-radius: 30px;
 
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0;
     background-image: url('cell-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -129,18 +159,25 @@
 }
 
 
-.centering {
-  height: 100%;
+.order .textBox {
+  box-sizing: border-box;
+  height: 90%;
+  width: auto;
+  margin: 1rem;
 
-  display: flex;
-  flex-direction: column ;
-  justify-content: center;
+  display: grid;
+  gap: .5rem;
 
   padding:0;
-  align-items: center;
   position: relative;
 
   border-radius: 50px;
+
+  grid-template: 
+    'textHeader textHeader textHeader textHeader'
+    'thin hablfett fett price'
+    'buy buy buy buy'
+  ;
 
   z-index: 10;
   transition: transform .4s cubic-bezier(.3,.7,0,1);
@@ -150,106 +187,150 @@
   transition-delay: 0s;
 }
 
-.itemTitle {
-  transform: translateY(80%);
+
+
+.productGrid .title {
   width:auto;
   height: auto;
-  text-align: center;
+  text-align: left;
+
+  grid-area: textHeader / textHeader / textHeader / textHeader;
 }
 
-.itemHeader {
+.textHeader {
   color: rgba(255,255,255, 0.9);
-  font-size: 4vw;
+  font-size: 5vw;
   line-height: 4vw;
-  font-family: 'chaney';
-}
-
-.itemPrice {
-  display: block;
-  margin-top: 10pt;
-  color: rgba(255,255,255, 0.9);
-  font-size: 1.5vw;
   font-family: 'sohne';
 }
 
+.textPrice {
+  width: 10vw;
+  display: grid;
+  place-items: center;
+  color: rgba(255,255,255, 0.9);
+  font-size: 7vw;
+  font-family: 'sohne';
+
+  grid-area: price / price / price / price;
+}
+
+.productGrid .sizes {
+  padding-left: 2rem;
+  width:auto;
+  height: auto;
+  text-align: left;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.sizeButton {
+  width: auto;
+  height: 100%;
+  border-radius: 5px;
+  border-style: solid;
+  background: none;
+  color: white;
+  border-color: white;
+  margin-right: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition:  .4s cubic-bezier(.3,.7,0,1);
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
+  transition-delay: 0s;
+}
+
+.sizeButton:hover {
+  color: black;
+  background-color: white;
+}
+
+.buyButton {
+  width: auto;
+  height: auto;
+
+  min-height: 6vh;
+  border-radius: 5px;
+  border-style: solid;
+  background: none;
+  color: white;
+  border-color: white;
+  margin-right: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  grid-area: buy / buy / buy /buy;
+}
+
+.buyButton:hover {
+  color: black;
+  background-color: white;
+}
+
 @media (max-width: 48rem) {
-  .itemHeader {
-    font-size: 6vw;
-    line-height: 6vw;
+  .textHeader {
+    padding-top: .5rem;
+    font-size: 12vw;
+    line-height: 7vw;
+  }
+  .textHeader br {
+    display: none;
   }
 
-  .itemPrice {
-    font-size: 3vw;
+  .textPrice {
+    font-size: 5vw;
   }
 }
 
-.img {
-  transform: translateY(40%);
+#image  {
+  transform: translateY(20%);
   max-width: 80%;
   height: auto;
   opacity: 0.9;
 }
 
-.orange {
-  background-color: rgb(252, 144, 0, 0.8);
+
+
+
+
+.item {
+  grid-area: item / item / item / item 
 }
 
-.blue {
-  background-color: rgba(0, 46, 252, 0.61);
+.order {
+  grid-area: order / order / order / order
 }
 
-.red {
-  background-color: rgba(252, 80, 0, 0.8);
-}
-
-.green {
-  background-color: rgba(0, 252, 105, 0.582);
-}
-
-.milk {
-  background-color: rgba(255, 237, 197, 0.555);
+.about {
+  grid-area: about / about / about / about
 }
 
 
-
-.item-1 {
-  grid-area: item-1 / item-1 / item-1 / item-1
-}
-
-.item-2 {
-  grid-area: item-2 / item-2 / item-2 / item-2
-}
-
-.item-3 {
-  grid-area: item-3 / item-3 / item-3 / item-3
-}
-
-.item-4 {
-  grid-area: item-4 / item-4 / item-4 / item-4
-}
-
-.item-5 {
-  grid-area: item-5 / item-5 / item-5 / item-5
-}
-
-.item-6 {
-  grid-area: item-6 / item-6 / item-6 / item-6
-}
-
-.item-7 {
-  grid-area: item-7 / item-7 / item-7 / item-7
-}
-
-.item-8 {
-  grid-area: item-8 / item-8 / item-8 / item-8
-}
-
-.item-9 {
-  grid-area: item-9 / item-9 / item-9 / item-9
-}
-
-.item-10 {
-  grid-area: item-10 / item-10 / item-10 / item-10
-}
 
 /*----------END-------------*/
+
+.thin {
+  font-family: 'sohneThin';
+  padding-top: 3px;
+
+  grid-area: thin / thin / thin / thin;
+}
+
+.hablfett {
+  font-family: 'sohne';
+
+  grid-area: hablfett / hablfett / hablfett / hablfett;
+}
+
+.fett {
+  font-family: 'sohneHeavy';
+
+  grid-area: fett / fett / fett / fett; 
+}

@@ -35,10 +35,26 @@
 
 @font-face {
   font-family: 'sohne';
+  src: url('Sohne-Halbfett.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sohneThin';
   src: url('Sohne-Buch.otf');
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'sohneHeavy';
+  src: url('Sohne-Fett.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 html {
    scroll-behavior: smooth;
@@ -480,3 +496,4 @@ html {
 }
 
 /*----------END-------------*/
+

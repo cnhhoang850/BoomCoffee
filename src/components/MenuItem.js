@@ -29,7 +29,7 @@ const MenuItem = ({ firstName, lastName, price, imageUrl, index }) => {
   };
   return (
     <div className={`item-wrapper item-${index}`}>
-      <a href="https://bols.com/cocktails/recipes">
+      <a href="/product">
         <div className="border"></div>
         <div className={`parallax ${findColor(firstName)}`}>
           <div className="centering">
