@@ -1,7 +1,5 @@
 import React from "react";
-import Menu from "./MenuItem";
 import "./ProductGrid.css";
-import image from "../tea.png";
 import SizePrice from "./SizePrice";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
@@ -11,7 +9,6 @@ const transition = { duration: 4, ease: [0.6, 0.01, 0.05, 0.9] };
 const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
   const { scrollYProgress } = useViewportScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [80, 160]);
-
   return (
     <motion.div
       whileHover="hover"
