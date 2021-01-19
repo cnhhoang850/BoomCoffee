@@ -10,7 +10,7 @@ const transition = { duration: 4, ease: [0.6, 0.01, 0.05, 0.9] };
 
 const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
   const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [50, 200]);
+  const scale = useTransform(scrollYProgress, [0, 1], [150, 250]);
 
   let menuItems = [
     {
