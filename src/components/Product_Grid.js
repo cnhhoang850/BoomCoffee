@@ -10,7 +10,7 @@ const transition = { duration: 4, ease: [0.6, 0.01, 0.05, 0.9] };
 
 const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
   const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [100, 250]);
+  const scale = useTransform(scrollYProgress, [0, 1], [80, 160]);
 
   return (
     <motion.div
@@ -25,9 +25,9 @@ const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
             <div className="centering">
               <motion.img
                 style={{ translateY: scale }}
-                initial={{ scale: 0.8, translateY: 0.2 }}
+                initial={{ scale: 0.8 }}
                 animate={{
-                  transition: { delay: 0.4, ...transition },
+                  transition: { delay: 0.1, ...transition },
                 }}
                 src={
                   "https://raw.githubusercontent.com/cnhhoang850/BoomCoffee/gh-pages/static/media/tea.9c74c900.png"
@@ -46,6 +46,21 @@ const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
               <div className="title">
                 <p className="textHeader">
                   {"Topping "}
+                  <br />
+                </p>
+                <span className="textPrice">{"29k"}</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div className={`options order-wrapper`}>
+        <a href="">
+          <div className={`textParallax`}>
+            <div className="textBox">
+              <div className="title">
+                <p className="textHeader">
+                  {"Options "}
                   <br />
                 </p>
                 <span className="textPrice">{"29k"}</span>

@@ -18,6 +18,7 @@
   grid-template: 
     'item item item order order order'
     'item item item about about about'
+    'item item item options options options'
   ;
 }
 
@@ -30,6 +31,7 @@
     'item'
     'order'
     'about'
+    'options'
     ;
   }
 
@@ -75,10 +77,6 @@
   border-style: solid;
   border-width: 5px;
   border-color: white;
-}
-
-.item-wrapper:hover, .item-wrapper:active {
-  transform: scale(.98);
 }
 
 
@@ -279,6 +277,9 @@
   grid-area: about / about / about / about
 }
 
+.options {
+  grid-area: options / options / options / options;
+}
 
 
 /*----------END-------------*/
