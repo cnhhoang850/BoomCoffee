@@ -27,7 +27,7 @@ const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
       className="productGrid"
     >
       <div className={`item item-wrapper`}>
-        <a href="https://bols.com/cocktails/recipes">
+        <a>
           <div className="border"></div>
           <div className={`parallax red`}>
             <div className="centering">
@@ -48,7 +48,7 @@ const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
       </div>
       <SizePrice />
       <div className={`about order-wrapper`}>
-        <a href="https://bols.com/cocktails/recipes">
+        <a href="">
           <div className={`textParallax`}>
             <div className="textBox">
               <div className="title">
