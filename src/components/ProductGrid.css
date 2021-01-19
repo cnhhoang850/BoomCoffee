@@ -154,14 +154,9 @@
   transition-delay: 0s;
 }
 
-.border:hover, .border:active {
-  border-width: .5vw;
-}
-
-
 .order .textBox {
   box-sizing: border-box;
-  height: 90%;
+  height: 80%;
   width: auto;
   margin: 1rem;
 
@@ -277,7 +272,7 @@
 @media (max-width: 48rem) {
   .textHeader {
     padding-top: .5rem;
-    font-size: 12vw;
+    font-size: 10vw;
     line-height: 7vw;
   }
   .textHeader br {

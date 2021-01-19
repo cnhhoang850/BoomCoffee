@@ -37,7 +37,9 @@ const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
                 animate={{
                   transition: { delay: 0.4, ...transition },
                 }}
-                src={image}
+                src={
+                  "https://raw.githubusercontent.com/cnhhoang850/BoomCoffee/gh-pages/static/media/tea.9c74c900.png"
+                }
                 id="image"
               />
             </div>
