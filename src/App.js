@@ -15,6 +15,7 @@ function App() {
     const scroll = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
+      smoothMobile: true,
     });
   });
   let menuItems = [
