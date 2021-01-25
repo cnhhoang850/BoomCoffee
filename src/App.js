@@ -2,22 +2,13 @@ import Navigation from "./components/Navigation";
 import Divider from "./components/Divider";
 import Menu from "./components/Menu";
 import Search from "./components/SearchBar";
-import Product from "./components/Product_Grid";
+import Product from "./components/ProductGrid/Product_Grid";
 import "./App.css";
 import { AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LocomotiveScroll from "locomotive-scroll";
-import React, { createRef, useEffect } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 function App() {
-  const scrollRef = createRef();
-  useEffect(() => {
-    const scroll = new LocomotiveScroll({
-      el: scrollRef.current,
-      smooth: true,
-      smoothMobile: true,
-    });
-  });
   let menuItems = [
     {
       firstName: "FRAPPU",
@@ -82,27 +73,29 @@ function App() {
   ];
   return (
     <Router>
-      <div ref={scrollRef}>
-        <Navigation data-scroll-section />
-        <Divider data-scroll-section />
-        <Search data-scroll-section />
+      <div>
+        <Navigation />
+        <Divider />
+        <Search />
         <Route
           render={({ location }) => (
             <AnimatePresence initial={false} exitBeforeEnter>
-              <Switch location={location} key={location.pathname}>
-                <Route
-                  exact
-                  path="/"
-                  render={() => (
-                    <Menu menuItems={menuItems} data-scroll-section />
-                  )}
-                />
-                <Route
-                  exact
-                  path="/product"
-                  render={() => <Product data-scroll-section />}
-                />
-              </Switch>
+              <TransitionGroup component={null}>
+                <CSSTransition
+                  key={location.key}
+                  in={true}
+                  classNames="slide-in"
+                >
+                  <Switch location={location} key={location.pathname}>
+                    <Route
+                      exact
+                      path="/"
+                      render={() => <Menu menuItems={menuItems} />}
+                    />
+                    <Route exact path="/product" render={() => <Product />} />
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
             </AnimatePresence>
           )}
         />

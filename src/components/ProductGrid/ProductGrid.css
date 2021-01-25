@@ -1,7 +1,4 @@
 /*----------DISPLAY GRID-------------*/
-#root {
-  padding: 2vw
-}
 
 .productGrid {  
   margin: 3rem;
@@ -106,7 +103,7 @@
 
     z-index: 1;
     opacity: 0;
-    background-image: url('cell-bg.jpg');
+    background-image: url('../cell-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -130,15 +127,18 @@
 
 }
 
+.textParallax {
+  display: grid;
+  place-items: center;
+}
+
 .order .textBox {
   box-sizing: border-box;
   height: 80%;
-  width: auto;
-  margin: 1rem;
+  width: 90%;
 
   display: grid;
-  gap: .5rem;
-
+  gap: 0;
   padding:0;
   position: relative;
 
@@ -171,35 +171,30 @@
 }
 
 .textPrice {
-  width: 10vw;
+  width: 12vw;
   display: grid;
   place-items: center;
   color: rgba(255,255,255, 0.9);
-  font-size: 7vw;
+  font-size: 8vw;
   font-family: 'sohne';
 
   grid-area: price / price / price / price;
 }
 
-.productGrid .sizes {
-  padding-left: 2rem;
-  width:auto;
-  height: auto;
-  text-align: left;
-
-  display: flex;
-  justify-content: space-around;
-}
 
 .sizeButton {
-  width: auto;
-  height: 100%;
+  width: 9vh;
+  height: 60%;
+
+  align-self: center;
+  margin: 0;
+
+
   border-radius: 5px;
   border-style: solid;
   background: none;
   color: white;
   border-color: white;
-  margin-right: 10px;
 
   display: flex;
   justify-content: center;
@@ -211,10 +206,12 @@
   transition-delay: 0s;
 }
 
+
 .sizeButton:hover {
   color: black;
   background-color: white;
 }
+
 
 .buyButton {
   width: auto;
@@ -249,13 +246,22 @@
   .textHeader br {
     display: none;
   }
+  .sizeButton {
+    width: 14vw;
+    height: 80%;
+    margin-top: 3vw;
+  }
+  .buyButton {
+    margin-top: 3vw;
+  }
 
   .textPrice {
-    font-size: 5vw;
+    font-size: 8vw;
   }
 }
 
 #image  {
+  transform: translateY(15%);
   max-width: 80%;
   height: auto;
   opacity: 0.9;
@@ -285,8 +291,7 @@
 /*----------END-------------*/
 
 .thin {
-  font-family: 'sohneThin';
-  padding-top: 3px;
+  font-family: 'sohne';
 
   grid-area: thin / thin / thin / thin;
 }

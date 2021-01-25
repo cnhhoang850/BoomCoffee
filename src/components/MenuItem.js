@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../tea.png";
+import { Link } from "react-router-dom";
 
 const MenuItem = ({ firstName, lastName, price, imageUrl, index }) => {
   //index + 1 because array is 0 index
@@ -29,7 +30,7 @@ const MenuItem = ({ firstName, lastName, price, imageUrl, index }) => {
   };
   return (
     <div className={`item-wrapper item-${index}`}>
-      <a href="/product">
+      <Link to="/product">
         <div className="border"></div>
         <div className={`parallax ${findColor(firstName)}`}>
           <div className="centering">
@@ -44,7 +45,7 @@ const MenuItem = ({ firstName, lastName, price, imageUrl, index }) => {
             <img src={image} className="img" />
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

@@ -2,13 +2,14 @@ import React from "react";
 import "./ProductGrid.css";
 import SizePrice from "./SizePrice";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
-
+import tea from "../tea.png";
 //Ease
 const transition = { duration: 4, ease: [0.6, 0.01, 0.05, 0.9] };
 
 const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
+  window.scrollTo(0, 0);
   const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [80, 160]);
+  const scale = useTransform(scrollYProgress, [0, 0.8], [80, 200]);
   return (
     <motion.div
       whileHover="hover"
@@ -16,40 +17,28 @@ const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
       className="productGrid"
     >
       <div className={`item item-wrapper`}>
-        <a>
+        <div>
           <div className="border"></div>
           <div className={`parallax red`}>
             <div className="centering">
-              <motion.img
-                style={{ translateY: scale }}
-                initial={{ scale: 0.8 }}
-                animate={{
-                  transition: { delay: 0.1, ...transition },
-                }}
-                src={
-                  "https://raw.githubusercontent.com/cnhhoang850/BoomCoffee/gh-pages/static/media/tea.9c74c900.png"
-                }
-                id="image"
-              />
+              <motion.img style={{ translateY: scale }} src={tea} id="image" />
             </div>
           </div>
-        </a>
+        </div>
       </div>
       <SizePrice />
       <div className={`about order-wrapper`}>
-        <a href="">
-          <div className={`textParallax`}>
-            <div className="textBox">
-              <div className="title">
-                <p className="textHeader">
-                  {"Topping "}
-                  <br />
-                </p>
-                <span className="textPrice">{"29k"}</span>
-              </div>
+        <div className={`textParallax`}>
+          <div className="textBox">
+            <div className="title">
+              <p className="textHeader">
+                {"Topping "}
+                <br />
+              </p>
+              <span className="textPrice">{"29k"}</span>
             </div>
           </div>
-        </a>
+        </div>
       </div>
       <div className={`options order-wrapper`}>
         <a href="">

@@ -21,12 +21,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'sohneThin';
-  src: url('Sohne-Buch.otf');
-  font-weight: normal;
-  font-style: normal;
-}
 
 @font-face {
   font-family: 'sohneHeavy';
@@ -34,7 +28,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 
 
 html {
@@ -48,6 +41,19 @@ body {
 
 * {
   scroll-behavior: smooth;
+}
+
+#root {
+  padding-top: 2vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+@media (max-width: 48rem) {
+  #root {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
 }
 
 /*----------HEADER-------------*/
@@ -65,21 +71,22 @@ body {
 }
 
 .brand {
+  transform: translateY(.6vw);
   font-family: chaney;
-  font-size: 5vw;
-  line-height: 3.5vw;
+  font-size: 3vw;
+  line-height: 1.5vw;
 }
 
 .brandcoffee {
   font-family: chaney;
-  font-size: 4.1vw;
-  line-height: 4vw;
+  font-size: 2.5vw;
+  line-height: 3vw;
 }
 
 .stretch {
   font-family: chaneywide;
-  font-size: 5vw;
-  line-height: 4vw;
+  font-size: 3vw;
+  line-height: 1.5vw;
 }
 
 .nav {
@@ -89,12 +96,19 @@ body {
 
   height: auto;
   width: 20vw;
+
+  will-change: transform, opacity;
   
   cursor: pointer;
   transition: .6s cubic-bezier(.3,.7,0,1);
   transition-duration: .6s;
   transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
   transition-delay: .2s;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(320%)
 }
 
 .nav a {
@@ -114,12 +128,17 @@ body {
   .nav a {
     font-size: 4vw;
   }
+  .hide {
+    opacity: 0;
+    transform: translateY(140%)
+  }
 }
 
 /*-----------------------*/
 
 /*----------Divider-------*/
 .divider { 
+
   margin: 2vw 3rem 0 3rem;
   height: 2px;
 
@@ -146,8 +165,9 @@ body {
 
 
   background-color: black;
-  box-shadow: 0 5px 0px rgba(0, 0, 0 ,1);
+  box-shadow: 0px 0px 10px  10px rgba(0, 0, 0 ,1);
 }
+
 
 .searchBar {
   display: flex;
@@ -169,16 +189,29 @@ body {
   background-color: black;
   color: rgba(255, 255, 255, 1);
 
+  will-change: width;
   transition: .6s cubic-bezier(.3,.7,0,1);
   transition-duration: .6s;
   transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
   transition-delay: .2s;
 }
 
-.searchBar.shorten {
-  width: calc(100% - 23vw);
+.searchHide {
+  opacity: 0;
 }
 
+
+.shorten {
+  width: calc(50% - .5rem);
+  opacity:0;
+  transition: .6s cubic-bezier(.3,.7,0,1);
+  transition-duration: .6s;
+  transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
+  transition-delay: .2s;
+}
+.searchShow {
+  opacity: 1
+}
 
 .search .nav {
   display: block;
@@ -189,11 +222,14 @@ body {
   width: 20vw;
   margin-top: 5px;
   margin-left: auto;
+  z-index: -100;
 
   cursor: pointer;
 
+  will-change: transform, opacity;
+
   opacity: 0;
-  transform: translateY(-150%);
+  transform: translateY(-240%);
   transition: .6s cubic-bezier(.3,.7,0,1);
   transition-duration: .6s;
   transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
@@ -205,10 +241,7 @@ body {
   transform: translateY(0);
 }
 
-.hide {
-  opacity: 0;
-  transform: translateY(200%)
-}
+
 
 @media (max-width: 48rem) {
   .search {
@@ -220,6 +253,7 @@ body {
   .search .nav {
     width: 40vw;
     margin-top: 2.5vw;
+    transform: translateY(-140%);
   }
   .searchBar.shorten {
     width: 49%;
@@ -279,7 +313,7 @@ body {
   }
 }
 
-.item-wrapper {
+.grid .item-wrapper {
   height:0;
   padding-top: calc(1.28 * 100%);
   position: relative;
@@ -294,7 +328,7 @@ body {
 
 }
 
-.item-wrapper:hover, .item-wrapper:active {
+.grid .item-wrapper:hover, .grid .item-wrapper:active {
   transform: scale(.98);
 }
 
@@ -357,7 +391,7 @@ body {
   transition-delay: 0s;
 }
 
-.border:hover, .border:active {
+.grid .border:hover, .border:active {
   border-width: .5vw;
 }
 
@@ -486,4 +520,3 @@ body {
 }
 
 /*----------END-------------*/
-
