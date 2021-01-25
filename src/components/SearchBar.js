@@ -1,52 +1,29 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect } from "react";
 
 const Search = () => {
-  const [short, setShort] = useState("searchHide");
   useLayoutEffect(() => {
     const searchNav = document.getElementById("searchNav");
-    const searchBar = document.getElementsByClassName("search")[0];
+    let searchBar = document.getElementsByClassName("search")[0];
     const bar = document.getElementsByClassName("searchBar")[0];
     const mainNav = document.getElementById("mainNav");
-    let latestScrollY = 0,
-      ticking = false;
-
-    function onScroll() {
-      latestScrollY = window.scrollY;
-      requestTick();
-    }
-
-    function requestTick() {
-      if (!ticking) {
-        requestAnimationFrame(update);
-      }
-      ticking = true;
-    }
-
-    function update() {
-      ticking = false;
-      if (latestScrollY > 0.09 * window.innerWidth) {
+    function getOffSetBar() {
+      if (searchBar.offsetTop > 0.15 * window.innerWidth) {
+        bar.classList.add("shorten");
         searchNav.classList.add("show");
         mainNav.classList.add("hide");
-        setShort("searchShow");
       }
-      if (latestScrollY < 0.09 * window.innerWidth) {
+      if (searchBar.offsetTop < 0.15 * window.innerWidth) {
+        bar.classList.remove("shorten");
         searchNav.classList.remove("show");
         mainNav.classList.remove("hide");
-        setShort("searchHide");
       }
     }
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", getOffSetBar);
   }, []);
   return (
     <section className="search">
-      <input className={`searchBar shorten ${short}`} placeholder="search" />
-      <input
-        className={`searchBar ${
-          short === "searchShow" ? "searchHide" : "searchShow"
-        }`}
-        placeholder="search"
-      />
+      <input className="searchBar" placeholder="search" />
       <div className="nav" id="searchNav">
         <span className="drinks">
           <a>menu</a>
