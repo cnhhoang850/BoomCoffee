@@ -203,7 +203,7 @@ body {
 
 .shorten {
   width: calc(50% - .5rem);
-  opacity:0;
+  opacity:1;
   transition: .6s cubic-bezier(.3,.7,0,1);
   transition-duration: .6s;
   transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
