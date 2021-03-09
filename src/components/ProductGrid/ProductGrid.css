@@ -232,7 +232,7 @@
   grid-area: buy / buy / buy /buy;
 }
 
-.buyButton:hover {
+.buyButton:hover , .buyButton:active{
   color: black;
   background-color: white;
 }
@@ -306,4 +306,9 @@
   font-family: 'sohneHeavy';
 
   grid-area: fett / fett / fett / fett; 
+}
+
+
+#image {
+  scroll-behavior: smooth;
 }

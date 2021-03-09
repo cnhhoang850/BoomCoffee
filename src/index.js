@@ -3,14 +3,31 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import CartNav from "./components/CartNav";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-document.body.style.webkitTransform = "scale(1)";
-document.body.style.msTransform = "scale(100)";
-document.body.style.transform = "scale(1)";
+function setDocHeight() {
+  document.documentElement.style.setProperty(
+    "--vh",
+    `${window.innerHeight / 100}px`
+  );
+}
+
+window.addEventListener("resize", function () {
+  setDocHeight();
+});
+window.addEventListener("orientationchange", function () {
+  setDocHeight();
+});
+
+window.onload = setDocHeight;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <App />
+      <CartNav />
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -21,6 +21,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'sohneThin';
+  src: url('Sohne-Buch.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 @font-face {
   font-family: 'sohneHeavy';
@@ -30,24 +37,42 @@
 }
 
 
-html {
+html, html > *{
    scroll-behavior: smooth;
    background-color: black;
 }
 
 body {
-  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
-* {
-  scroll-behavior: smooth;
+a {
+  z-index: 10
+}
+
+#main-wrapper {
+  transition: .6s cubic-bezier(.3,.7,0,1);
+  transition-duration: .6s;
+  transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
+  transition-delay: .2s;
 }
 
 #root {
-  padding-top: 2vw;
+  padding-top: 0vw;
   padding-left: 5vw;
   padding-right: 5vw;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 
 @media (max-width: 48rem) {
   #root {
@@ -73,29 +98,32 @@ body {
 .brand {
   transform: translateY(.6vw);
   font-family: chaney;
-  font-size: 3vw;
-  line-height: 1.5vw;
+  font-size: 4vw;
+  line-height: 2.5vw;
 }
 
 .brandcoffee {
   font-family: chaney;
-  font-size: 2.5vw;
+  font-size: 3.3vw;
   line-height: 3vw;
 }
 
 .stretch {
   font-family: chaneywide;
-  font-size: 3vw;
-  line-height: 1.5vw;
+  font-size: 4vw;
+  line-height: 2.5vw;
 }
 
 .nav {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-self: center;
+  position: relative;
 
   height: auto;
-  width: 20vw;
+  width: 48%;
+
+  z-index: 100;
 
   will-change: transform, opacity;
   
@@ -113,14 +141,20 @@ body {
 
 .nav a {
   font-size: 2vw;
+  color: white;
+  text-decoration: none;
 }
 
-.nav a:hover, .nav a:active {
+.nav *:hover{
   text-decoration: underline;
 }
 
 
 @media (max-width: 48rem) {
+  .header {
+    padding: 0;
+    margin: .2rem 1rem 0 1rem
+  }
   .nav {
     width: 40vw;
     transition-delay: .2s;
@@ -154,18 +188,19 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  justify-items: center;
 
   position:sticky;
   top: -2px;
   z-index: 100; 
 
-  height: auto;
-  padding: 5px 0 0 0 ;
+  height: 6vh;
+  padding: 0 0 0 0 ;
   margin: 2vw 3rem 1rem 3rem;
 
 
   background-color: black;
-  box-shadow: 0px 0px 10px  10px rgba(0, 0, 0 ,1);
+  box-shadow: 0px 5px 10px  10px rgba(0, 0, 0 ,1);
 }
 
 
@@ -216,20 +251,22 @@ body {
 .search .nav {
   display: block;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  justify-self: center;
+  align-self: center;
   
-  height: 5vh;
-  width: 20vw;
-  margin-top: 5px;
+  height: 1vh;
+  width: 48%;
+  margin-top: -20px;
   margin-left: auto;
-  z-index: -100;
+  z-index: 100;
 
   cursor: pointer;
 
   will-change: transform, opacity;
 
-  opacity: 0;
-  transform: translateY(-240%);
+  opacity: 1;
+  transform: translateY(-1400%);
   transition: .6s cubic-bezier(.3,.7,0,1);
   transition-duration: .6s;
   transition-timing-function: cubic-bezier(0.3, 0.7, 0, 1);
@@ -241,7 +278,12 @@ body {
   transform: translateY(0);
 }
 
+/*--to not block hearder nav*/
 
+#searchNav .nav {
+  position: relative;
+  z-index: -100;
+}
 
 @media (max-width: 48rem) {
   .search {
@@ -252,8 +294,8 @@ body {
   }
   .search .nav {
     width: 40vw;
-    margin-top: 2.5vw;
-    transform: translateY(-140%);
+    margin-top: -.5rem;
+    transform: translateY(-660%);
   }
   .searchBar.shorten {
     width: 49%;
@@ -285,6 +327,7 @@ body {
 }
 
 @media (max-width: 48rem)  {
+
   .grid {
     margin: 1rem;
 
@@ -301,11 +344,6 @@ body {
     'item-9 item-9 item-9 item-10 item-10 item-10'
     'item-9 item-9 item-9 item-10 item-10 item-10'
     ;
-  }
-
-  .header {
-    padding: 0;
-    margin: 0 1rem 0 1rem
   }
 
   .body {
@@ -379,8 +417,8 @@ body {
 
   border-radius: 30px;
 
-  border:rgb(252, 255, 255, 0.2);
-  border-width: 2vw;
+  border:rgb(252, 255, 255, .3);
+  border-width: 1.5vw;
   border-style:solid;
 
   z-index: 30;
@@ -393,6 +431,7 @@ body {
 
 .grid .border:hover, .border:active {
   border-width: .5vw;
+  outline: none;
 }
 
 
@@ -518,5 +557,84 @@ body {
 .item-10 {
   grid-area: item-10 / item-10 / item-10 / item-10
 }
+
+/*-------Footer----------*/
+
+#footer  {
+  margin: 5rem 3rem 0 3rem;
+
+  font-family: 'sohneThin';
+}
+
+#footer a {
+  font-family: 'sohneThin';
+  font-size: .8rem;
+  color: rgba(255,255,255, 0.7);
+  cursor: pointer;
+}
+
+#footer a:hover, #footer a:active {
+  color: white;
+}
+
+a #address {
+  line-height: 10px;
+}
+
+
+.footerGrid {
+  display: grid;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  gap: .5rem;
+
+  grid-template-areas: 
+    'info company service social'
+  ;
+}
+
+.footerGrid .info {
+  grid-area: info / info / info / info;
+}
+
+.footerGrid .company {
+  grid-area: company / company / company / company; 
+}
+
+.footerGrid .service {
+  grid-area: service / service / service / serivice;
+}
+
+.footerGrid .social {
+  grid-area: social / social / social / social;
+}
+
+.footerTail {
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(255,255,255, 0.7);
+}
+
+.footerTail p, .footerTail a {
+  font-size: .8rem;
+}
+
+@media (max-width: 48rem) {
+  #footer {
+    margin: 3rem 1rem 0 1rem;
+  }
+  #footer a {
+    font-size: .6rem;
+  }
+  .footerGrid { 
+    margin-top: 1rem;
+    grid-template-areas: 
+    'info company social'
+    'info service social'
+  ;
+
+  }
+}
+
 
 /*----------END-------------*/

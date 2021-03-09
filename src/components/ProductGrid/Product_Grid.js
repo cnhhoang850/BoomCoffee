@@ -9,7 +9,7 @@ const transition = { duration: 4, ease: [0.6, 0.01, 0.05, 0.9] };
 const ProductGrid = ({ productName, backdgroundColor, textColor }) => {
   window.scrollTo(0, 0);
   const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.8], [80, 200]);
+  const scale = useTransform(scrollYProgress, [0, 0.8], [60, 280]);
   return (
     <motion.div
       whileHover="hover"
